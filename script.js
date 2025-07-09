@@ -7,6 +7,10 @@ const map = L.map('map', {
 L.imageOverlay('map.png', bounds).addTo(map);
 map.fitBounds(bounds);
 
+const MOVE_STEP = 2;
+const ROTATE_STEP = 1;
+const SCALE_STEP = 0.05; // 5%
+
 let geojsonData = null;
 let geoLayer = null;
 
@@ -102,12 +106,12 @@ fetch('shapes.geojson')
     draw();
   });
 
-document.getElementById('up').addEventListener('click', () => translate(0, -10));
-document.getElementById('down').addEventListener('click', () => translate(0, 10));
-document.getElementById('left').addEventListener('click', () => translate(-10, 0));
-document.getElementById('right').addEventListener('click', () => translate(10, 0));
-document.getElementById('rotLeft').addEventListener('click', () => rotate(-5));
-document.getElementById('rotRight').addEventListener('click', () => rotate(5));
-document.getElementById('scaleDown').addEventListener('click', () => scale(0.9));
-document.getElementById('scaleUp').addEventListener('click', () => scale(1.1));
+document.getElementById('up').addEventListener('click', () => translate(0, -MOVE_STEP));
+document.getElementById('down').addEventListener('click', () => translate(0, MOVE_STEP));
+document.getElementById('left').addEventListener('click', () => translate(-MOVE_STEP, 0));
+document.getElementById('right').addEventListener('click', () => translate(MOVE_STEP, 0));
+document.getElementById('rotLeft').addEventListener('click', () => rotate(-ROTATE_STEP));
+document.getElementById('rotRight').addEventListener('click', () => rotate(ROTATE_STEP));
+document.getElementById('scaleDown').addEventListener('click', () => scale(1 - SCALE_STEP));
+document.getElementById('scaleUp').addEventListener('click', () => scale(1 + SCALE_STEP));
 document.getElementById('save').addEventListener('click', download);
