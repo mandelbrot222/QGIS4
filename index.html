@@ -7,10 +7,23 @@
 <style>
   html, body { height: 100%; margin: 0; }
   #map { width: 100%; height: 100%; }
+  #controls { position: absolute; top: 10px; left: 10px; background: white; padding: 4px; z-index: 1000; }
+  #controls button { margin: 2px; }
 </style>
 </head>
 <body>
 <div id="map"></div>
+<div id="controls">
+  <button id="up">Up</button>
+  <button id="down">Down</button>
+  <button id="left">Left</button>
+  <button id="right">Right</button>
+  <button id="rotLeft">Rotate -</button>
+  <button id="rotRight">Rotate +</button>
+  <button id="scaleDown">Scale -</button>
+  <button id="scaleUp">Scale +</button>
+  <button id="save">Save</button>
+</div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
