@@ -7,9 +7,9 @@ const map = L.map('map', {
 L.imageOverlay('map.png', bounds).addTo(map);
 map.fitBounds(bounds);
 
-const MOVE_STEP = 2;
-const ROTATE_STEP = 1;
-const SCALE_STEP = 0.05; // 5%
+const MOVE_STEP = 0.2;
+const ROTATE_STEP = 0.1;
+const SCALE_STEP = 0.01; // 1%
 
 let geojsonData = null;
 let geoLayer = null;
